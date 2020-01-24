@@ -1,6 +1,8 @@
 import React from 'react';
 
 import { connect } from 'react-redux'
+import Loader from "react-loader-spinner";
+
 
 
 import { makeStyles } from '@material-ui/core/styles';
@@ -67,6 +69,15 @@ const Meals = props => {
 
             )} */}
 
+            {props.isLoading ? <Loader
+            type="Puff"
+            color="#00BFFF"
+            height={100}
+            width={100}
+            timeout={3000} //3 secs
+            /> : ''}
+            
+
             {props.mealData.map(item => 
             <Card className={classes.card}>
             <CardHeader
@@ -132,7 +143,8 @@ const Meals = props => {
 
 const mapStateToProps = state => {
     return {
-        mealData: state.mealData
+        mealData: state.mealData,
+        isLoading: state.isLoading
     }
 }
 
