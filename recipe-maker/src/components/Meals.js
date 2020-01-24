@@ -1,10 +1,33 @@
 import React from 'react';
 
-const Meals = () => {
+import { connect } from 'react-redux'
 
+const Meals = props => {
+
+    console.log(props)
     return (
-        <h2>This is the Meals.js component</h2>
+        <div>
+            {props.mealData.map(item => 
+            <div>
+                <h3>{item.title}</h3>
+            <p><strong>Ingredients:</strong>{item.ingredients}</p>
+                <img src={item.thumbnail} alt={item.title} />
+            </div>
+
+            )}
+        </div>
     )
 }
 
-export default Meals;
+
+
+
+const mapStateToProps = state => {
+    return {
+        mealData: state.mealData
+    }
+}
+
+export default connect(
+mapStateToProps
+)(Meals)
