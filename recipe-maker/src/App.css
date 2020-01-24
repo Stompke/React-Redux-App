@@ -36,3 +36,12 @@
     transform: rotate(360deg);
   }
 }
+
+
+.MuiFormLabel-root {
+  color: #fff !important;
+}
+
+.MuiInputBase-root {
+  color: #fff !important;
+}
